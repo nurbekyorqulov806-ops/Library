@@ -57,7 +57,7 @@ class Database:
         sql = """
             CREATE TABLE IF NOT EXISTS address(
                 id INT PRIMARY KEY AUTO_INCREMENT,
-                user_id INT  NOT NULL,
+                user_id BIGINT NOT NULL,
                 address VARCHAR(100) NOT NULL,
                 choise1 VARCHAR(100) NOT NULL,
                 rooms INT NOT NULL,

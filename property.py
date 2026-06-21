@@ -11,8 +11,10 @@ from aiogram.filters import CommandStart, Command, StateFilter
 from db2 import db
 
 
+
+
 TOKEN="8622559912:AAE6QTGQCkIkShTnwBd3-XlLdrIy7piiaEQ"
-KANAL_ID="@uy_bozori_nurbek_bot"
+KANAL_ID="@my_test_channel_202"
 
 
 
@@ -179,6 +181,8 @@ async def start_form(message: Message, state: FSMContext):
     await message.answer("Manzilni kiriting:",reply_markup=back_keyboard)
     await state.set_state(UserState.waiting_for_address)
 
+
+
 # ================= ADDRESS =================
 @dp.message(UserState.waiting_for_address)
 async def address(message: Message, state: FSMContext):
@@ -317,25 +321,32 @@ async def post_to_channel_callback(call:CallbackQuery,state:FSMContext):
 @dp.message(StateFilter(None))
 async def handler(message:Message,state: FSMContext):
 
+
     if message.text=="Uy manzili":
         await message.answer("Uy manzilini kiriting:")
         await state.set_state(UserState.waiting_for_address)
+
 
     elif message.text=="Kvartira/Hovli":
         await message.answer("Kvartirami yoki hovli")
         await state.set_state(UserState.waiting_for_choise1)
 
+
     elif message.text == "Xonalar soni":
         await message.answer("Xonalari soni nechta:")
         await state.set_state(UserState.waiting_for_rooms)
+
 
     elif message.text == "Sotuv/Ijara":
         await message.answer("Sotuvga yoki Ijaraga:")
         await state.set_state(UserState.waiting_for_choise2)
 
+
     elif message.text == "Narx":
         await message.answer("Narxi qancha")
         await state.set_state(UserState.waiting_for_cost)
+
+
 
 @dp.message()
 async def unknown_message(message: Message):
